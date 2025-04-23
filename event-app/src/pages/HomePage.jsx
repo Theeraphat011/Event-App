@@ -2,7 +2,7 @@ import EventCalendar from "../components/EventCalendar";
 
 const HomePage = () => {
 	return (
-		<div className="h-full">
+		<div className="h-[590px]">
 			<EventCalendar />
 		</div>
 	);

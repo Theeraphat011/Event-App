@@ -26,7 +26,7 @@ const Sidebar = () => {
    }, []);
 
    return (
-      <div>
+      <div className="py-10">
          <header className="mb-6">
             <Menu size={30} />
             <div className="flex flex-col items-center">

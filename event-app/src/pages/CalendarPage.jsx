@@ -42,7 +42,7 @@ const CalendarPage = () => {
 						Events
 						<p className="ml-24 text-sm">Click to detail event</p>
 					</h2>
-					<div className="h-54 overflow-y-auto">
+					<div className="h-63 overflow-y-auto rounded-md">
 						<EventList payload={calendar.event} handleDelete={handleDeleteEvent} />
 					</div>
 				</div>

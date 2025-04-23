@@ -25,10 +25,10 @@ const MainLayout = () => {
 	}, [statusAdd]);
 
 	return (
-		<div>
-			<div className="container mx-auto max-w-[1490px] h-screen w-full px-20 py-10">
-				<div className="flex gap-8 items-center justify-center h-full w-full overflow-hidden rounded-4xl px-6 py-5 shadow-[0_1px_20px_rgba(0,0,0,0.1)]">
-					<div className="w-1/4 h-full">
+		<div className="h-screen">
+			<div className="container mx-auto max-w-[1490px]  h-full w-full px-20 py-10">
+				<div className="flex items-center gap-8 w-full overflow-hidden rounded-4xl px-6 shadow-[0_1px_20px_rgba(0,0,0,0.1)]">
+					<div className="w-1/4 h-full ">
 						<Sidebar />
 					</div>
 					{status === "succeeded" ? (
