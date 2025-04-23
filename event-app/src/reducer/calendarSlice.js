@@ -1,8 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from 'axios'
 
 const initialState = {
    event: [],
+   state: 'idle',
+   err: null
 };
+
 
 const calendarSlice = createSlice({
    name: "calendar",
@@ -13,7 +17,8 @@ const calendarSlice = createSlice({
          state.event.push({ name, description, time, date });
       },
       editEvent: (state, action) => {
-         const { name, description, time, date, index } = action.payload;
+         const { index, name, description, time, date } = action.payload;
+         console.log("slice:", action.payload);
          state.event[index] = { name, description, time, date };
       },
       deleteEvent: (state, action) => {
@@ -23,5 +28,5 @@ const calendarSlice = createSlice({
    },
 });
 
-export const { addEvent, deleteEvent } = calendarSlice.actions;
+export const { addEvent, deleteEvent, editEvent } = calendarSlice.actions;
 export default calendarSlice.reducer;

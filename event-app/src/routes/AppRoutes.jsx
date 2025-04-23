@@ -1,6 +1,7 @@
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import CalendarPage from "../pages/CalendarPage";
+import EventsPage from "../pages/EventsPage";
 import DocumentPage from "../pages/DocumentPage";
 import TrashPage from "../pages/TrashPage";
 import SettingPage from "../pages/SettingPage";
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
          },
          {
             path: "about",
-            element: <AboutPage />,
+            element: <EventsPage />,
          },
          {
             path: "about/:id",

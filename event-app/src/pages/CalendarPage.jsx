@@ -11,12 +11,12 @@ const CalendarPage = () => {
 
    const handleAddEvent = (formData) => {
       const response = dispatch(addEvent(formData));
-      console.log("response:", response);
+      console.log("Add response:", response);
    };
 
    const handleDeleteEvent = (index) => {
       dispatch(deleteEvent(index));
-      console.log("Remove event:", index);
+      // console.log("Remove event:", index);
    };
 
    return (
