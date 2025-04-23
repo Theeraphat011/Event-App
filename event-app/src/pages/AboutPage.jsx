@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { handleEdit, resetStatusEdit } from "../reducer/calendarSlice";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import AboutEdit from "../components/AboutEdit";
 
@@ -13,6 +13,7 @@ const AboutPage = () => {
 	const detailEvent = event[param] ? event[param] : null;
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const toastShown = useRef(false);
 
 	useEffect(() => {
 		if (isNaN(param) || !detailEvent) {
@@ -21,15 +22,23 @@ const AboutPage = () => {
 	}, [param, detailEvent, navigate]);
 
 	useEffect(() => {
-		if (statusEdit === "succeeded") {
-			toast.success("Evet edited successfully!");
+		if (statusEdit === "succeeded" && !toastShown.current) {
+			toast.success("Event edited successfully!");
+			toastShown.current = true;
 			dispatch(resetStatusEdit());
-		} else if (statusEdit === "failed") {
+		} else if (statusEdit === "failed" && !toastShown.current) {
 			toast.error("Failed to edit event. Please try again");
+			toastShown.current = true;
+		}
+
+		// Reset the flag when status changes back to idle
+		if (statusEdit === "idle") {
+			toastShown.current = false;
 		}
 	}, [statusEdit, dispatch]);
 
 	const handleEditEvents = (formEdit) => {
+		toastShown.current = false;
 		dispatch(handleEdit({ ...formEdit, id: param }));
 	};
 
@@ -52,7 +61,6 @@ const AboutPage = () => {
 						</time>
 					</div>
 					<div>
-						
 						<AboutEdit detailEvent={detailEvent} handleEditEvents={handleEditEvents} />
 					</div>
 				</div>

@@ -53,6 +53,7 @@ export const handleDelete = createAsyncThunk('calendar/handleDelete',
 const initialState = {
    event: [],
    status: "idle",
+   statusAdd: "idle",
    statusEdit: "idle",
    err: null,
 };
@@ -61,6 +62,9 @@ const calendarSlice = createSlice({
    name: "calendar",
    initialState: initialState,
    reducers: {
+      resetStatusAdd: (state) => {
+         state.statusAdd = "idle"
+      },
       resetStatusEdit: (state) => {
          state.statusEdit = "idle"
       }
@@ -85,9 +89,11 @@ const calendarSlice = createSlice({
          // handleAddEvent
          .addCase(handleAddEvent.pending, (state) => {
             state.status = "loading"
+            state.statusAdd = "loading"
          })
          .addCase(handleAddEvent.fulfilled, (state, action) => {
             state.status = "succeeded";
+            state.statusAdd = "succeeded"
             const index = state.event.findIndex(event => event.id === action.payload.id)
             if (index !== -1) {
                state.event[index] = action.payload;
@@ -134,5 +140,5 @@ const calendarSlice = createSlice({
    },
 });
 
-export const { resetStatusEdit } = calendarSlice.actions
+export const { resetStatusAdd, resetStatusEdit } = calendarSlice.actions
 export default calendarSlice.reducer;
