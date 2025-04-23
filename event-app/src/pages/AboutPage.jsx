@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import AboutEdit from "../components/AboutEdit";
-import { editEvent } from "../reducer/calendarSlice";
+import { handleEdit } from "../reducer/calendarSlice";
 import { useEffect } from "react";
 
 const AboutPage = () => {
@@ -12,9 +12,8 @@ const AboutPage = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const handleEdit = (formEdit) => {
-		const response = dispatch(editEvent({ ...formEdit, index: param }));
-		console.log("Edit response:", response);
+	const handleEditEvents = (formEdit) => {
+		dispatch(handleEdit({ ...formEdit, id: param }));
 	};
 
 	useEffect(() => {
@@ -26,7 +25,7 @@ const AboutPage = () => {
 	return (
 		<div>
 			{detailEvent ? (
-				<AboutEdit detailEvent={detailEvent} editEvent={handleEdit} />
+				<AboutEdit detailEvent={detailEvent} handleEditEvents={handleEditEvents} />
 			) : (
 				<p>Loading event details...</p>
 			)}

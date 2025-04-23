@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AboutEdit = ({ detailEvent, editEvent = () => {} }) => {
+const AboutEdit = ({ detailEvent, handleEditEvents = () => {} }) => {
 	const [formEdit, setformEdit] = useState({
 		name: detailEvent.name,
 		description: detailEvent.description,
@@ -20,7 +20,7 @@ const AboutEdit = ({ detailEvent, editEvent = () => {} }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		editEvent(formEdit);
+		handleEditEvents(formEdit);
 
 		setformEdit({
 			name: "",

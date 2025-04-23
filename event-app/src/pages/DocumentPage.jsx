@@ -1,6 +1,4 @@
 const DocumentPage = () => {
-  return (
-    <div>DocumentPage</div>
-  )
-}
-export default DocumentPage
+	return <h1>Document Page</h1>;
+};
+export default DocumentPage;
