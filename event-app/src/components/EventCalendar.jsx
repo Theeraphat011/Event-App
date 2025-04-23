@@ -34,9 +34,9 @@ const EventCalendar = () => {
                title: item.name,
                date: item.date,
             }))}
-            dayHeaderClassNames="orange-header"
-            dayCellClassNames="orange-cell"
-            eventClassNames="orange-event"
+            dayHeaderClassNames="green-header"
+            dayCellClassNames="green-cell"
+            eventClassNames="green-event"
             titleFormat={{ month: "long", year: "numeric" }}
             firstDay={0}
             height="100%"

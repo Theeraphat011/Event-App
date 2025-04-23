@@ -32,7 +32,6 @@ export const handleEdit = createAsyncThunk('calendar/handleEdit',
    async (eventEdit, { rejectWithValue }) => {
       try {
          const response = await axios.put(`${API_URL}/${eventEdit.id + 1}`, eventEdit)
-         console.log("edit action: ", response.data)
          return response.data
       } catch (error) {
          return rejectWithValue(error.message)
@@ -54,6 +53,7 @@ export const handleDelete = createAsyncThunk('calendar/handleDelete',
 const initialState = {
    event: [],
    status: "idle",
+   statusEdit: "idle",
    err: null,
 };
 
@@ -61,23 +61,15 @@ const calendarSlice = createSlice({
    name: "calendar",
    initialState: initialState,
    reducers: {
-      addEvent: (state, action) => {
-         const { name, description, time, date } = action.payload;
-         state.event.push({ name, description, time, date });
-      },
-      editEvent: (state, action) => {
-         const { id, name, description, time, date } = action.payload;
-         console.log("slice:", action.payload);
-         state.event[id] = { name, description, time, date };
-      },
-      deleteEvent: (state, action) => {
-         const { id } = action.payload;
-         state.event.splice(id, 1);
-      },
+      resetStatusEdit: (state) => {
+         state.statusEdit = "idle"
+      }
    },
+
    // Add status
    extraReducers: (builder) => {
       builder
+         // fetchEvents
          .addCase(fetchEvents.pending, (state) => {
             state.status = "loading";
          })
@@ -89,17 +81,45 @@ const calendarSlice = createSlice({
             state.status = "rejected";
             state.error = action.payload;
          })
+
+         // handleAddEvent
          .addCase(handleAddEvent.pending, (state) => {
             state.status = "loading"
          })
          .addCase(handleAddEvent.fulfilled, (state, action) => {
             state.status = "succeeded";
-            state.event.push(action.payload);
+            const index = state.event.findIndex(event => event.id === action.payload.id)
+            if (index !== -1) {
+               state.event[index] = action.payload;
+            }
          })
          .addCase(handleAddEvent.rejected, (state, action) => {
             state.status = "failed";
             state.error = action.payload;
          })
+
+         // handleEdit
+         .addCase(handleEdit.pending, (state) => {
+            state.status = "loading"
+            state.statusEdit = "loading"
+         })
+         .addCase(handleEdit.fulfilled, (state, action) => {
+            state.status = "succeeded"
+            state.statusEdit = "succeeded"
+            const updateEvent = action.payload;
+            const id = state.event.findIndex(event => event.id === updateEvent.id)
+
+            if (id !== -1) {
+               state.event[id] = updateEvent
+            }
+
+         })
+         .addCase(handleEdit.rejected, (state, action) => {
+            state.status = "failed"
+            state.error = action.payload
+         })
+
+         // handleDelete
          .addCase(handleDelete.pending, (state) => {
             state.status = 'loading';
          })
@@ -114,5 +134,5 @@ const calendarSlice = createSlice({
    },
 });
 
-export const { deleteEvent } = calendarSlice.actions;
+export const { resetStatusEdit } = calendarSlice.actions
 export default calendarSlice.reducer;

@@ -30,7 +30,7 @@ const Sidebar = () => {
          <header className="mb-6">
             <Menu size={30} />
             <div className="flex flex-col items-center">
-               <time className="bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent text-9xl font-extrabold text-center">
+               <time className="bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent text-9xl font-extrabold text-center">
                   {currentDate.day}
                </time>
                <div className="flex gap-3 text-3xl font-bold text-gray-800">

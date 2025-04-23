@@ -1,14 +1,15 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const AboutEdit = ({ detailEvent, handleEditEvents = () => {} }) => {
+	const statusLoading = useSelector((state) => state.calendar.status);
 	const [formEdit, setformEdit] = useState({
 		name: detailEvent.name,
 		description: detailEvent.description,
 		time: detailEvent.time,
 		date: detailEvent.date,
 	});
-
-	console.log(formEdit);
 
 	const handleChang = (e) => {
 		setformEdit({
@@ -69,8 +70,11 @@ const AboutEdit = ({ detailEvent, handleEditEvents = () => {} }) => {
 					required
 				/>
 			</div>
-			<button type="submit" className="btn-orange">
-				<div className="flex items-center justify-center">Edit Event</div>
+			<button type="submit" className="flex justify-center items-center gap-3 btn-orange">
+				{statusLoading !== "loading" && (
+					<div className="flex items-center justify-center">Edit Event</div>
+				)}
+				<ClipLoader color="#ffff" loading={statusLoading === "loading"} size={20} />
 			</button>
 		</form>
 	);
