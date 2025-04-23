@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './EventForm.css';
 
 const EventForm = ({ onAdd = () => {} }) => {
    const [formData, setformData] = useState({
@@ -30,40 +31,50 @@ const EventForm = ({ onAdd = () => {} }) => {
 
    return (
       <div>
-         <form onSubmit={handleSubmit}>
+         <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
             <input
                type="text"
                name="name"
-               placeholder="key"
+               placeholder="Event Name"
                value={formData.name}
                onChange={handleChang}
-               className="border p-2"
+               className="input-orange"
+               required
             />
             <input
                type="text"
                name="description"
-               placeholder="key"
+               placeholder="Description"
                value={formData.description}
                onChange={handleChang}
-               className="border p-2"
+               className="input-orange"
             />
-            <input
-               type="time"
-               name="time"
-               placeholder="key"
-               value={formData.time}
-               onChange={handleChang}
-               className="border p-2"
-            />
-            <input
-               type="date"
-               name="date"
-               placeholder="key"
-               value={formData.date}
-               onChange={handleChang}
-               className="border p-2"
-            />
-            <button type="submit">Submit</button>
+            <div className="grid grid-cols-2 gap-3">
+               <input
+                  type="time"
+                  name="time"
+                  placeholder="Time"
+                  value={formData.time}
+                  onChange={handleChang}
+                  className="input-orange"
+                  required
+               />
+               <input
+                  type="date"
+                  name="date"
+                  placeholder="Date"
+                  value={formData.date}
+                  onChange={handleChang}
+                  className="input-orange"
+                  required
+               />
+            </div>
+            <button type="submit" className="btn-orange">
+               <div className="flex items-center justify-center">
+                 
+                  Add Event
+               </div>
+            </button>
          </form>
       </div>
    );

@@ -24,7 +24,7 @@ const Sidebar = () => {
          year,
       });
    }, []);
-   console.log(currentDate);
+
    return (
       <div>
          <header className="mb-6">

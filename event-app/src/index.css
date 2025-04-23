@@ -9,41 +9,4 @@
     @apply flex gap-2 text-gray-700 text-base px-4 py-3 pl-8 mr-2 font-semibold cursor-pointer;
 }
 
-/* Calendar styles */
-.header-toolbar {
-    @apply bg-orange-100 text-orange-800 font-semibold py-2;
-}
 
-.orange-header {
-    @apply bg-orange-100 text-orange-800 font-semibold py-2;
-}
-
-.orange-cell {
-    @apply hover:bg-orange-500 opacity-20 transition-colors duration-200;
-}
-
-.orange-event {
-    @apply bg-orange-500 text-white border-0 rounded px-2 py-1 hover:bg-orange-600;
-}
-
-/* Calendar button styles */
-.fc .fc-button-primary {
-    @apply bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-600 hover:to-orange-300 text-white font-medium focus:outline-none focus:shadow-none border-none;
-}
-
-.fc .fc-button-primary:not(:disabled).fc-button-active, 
-.fc .fc-button-primary:not(:disabled):active {
-    @apply bg-gradient-to-r from-orange-700 to-orange-600 focus:outline-none focus:shadow-none shadow-none;
-}
-
-.fc .fc-button-primary:disabled {
-    @apply bg-gradient-to-r from-gray-800 to-gray-500 border-orange-300;
-}
-
-.fc .fc-button-primary:focus {
-    @apply shadow-none outline-none ring-0 focus:ring-0;
-}
-
-.fc .fc-toolbar-title {
-    @apply text-orange-800 font-bold;
-}

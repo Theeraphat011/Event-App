@@ -23,7 +23,7 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink
-               to={"/calendar"}
+               to={"calendar"}
                className={({ isActive }) =>
                   isActive ? "list-sidebar-active" : "list-sidebar"
                }
@@ -33,13 +33,13 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink
-               to={"/about"}
+               to={"about"}
                className={({ isActive }) =>
                   isActive ? "list-sidebar-active" : "list-sidebar"
                }
             >
                <NotebookPen />
-               Note
+               About
             </NavLink>
 
             <NavLink

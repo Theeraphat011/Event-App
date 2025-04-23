@@ -1,25 +1,10 @@
-import { useSelector } from "react-redux";
+import { useParams } from "react-router";
 
 const AboutPage = () => {
-   const event = useSelector((state) => state.calendar);
-
-   console.log(event);
+   const { id } = useParams();
    return (
       <div>
-         <h1>AboutPage</h1>
-         {Object.keys(event).map((day) => (
-            <div>
-               <span>{day}</span>
-               <div>
-                  {event[day].map((e, index) => (
-                     <span>
-                        {index + 1}
-                        {e}
-                     </span>
-                  ))}
-               </div>
-            </div>
-         ))}
+         {!id ? <div> params not found</div> : <div> param id: {id}</div>}
       </div>
    );
 };
