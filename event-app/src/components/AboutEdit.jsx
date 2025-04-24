@@ -39,7 +39,7 @@ const AboutEdit = ({ detailEvent, handleEditEvents = () => {} }) => {
 				placeholder="Event Name"
 				value={formEdit.name}
 				onChange={handleChang}
-				className="input-orange"
+				className="input-green"
 				required
 			/>
 			<input
@@ -48,7 +48,7 @@ const AboutEdit = ({ detailEvent, handleEditEvents = () => {} }) => {
 				placeholder="Description"
 				value={formEdit.description}
 				onChange={handleChang}
-				className="input-orange"
+				className="input-green"
 			/>
 			<div className="grid grid-cols-2 gap-3">
 				<input
@@ -57,7 +57,7 @@ const AboutEdit = ({ detailEvent, handleEditEvents = () => {} }) => {
 					placeholder="Time"
 					value={formEdit.time}
 					onChange={handleChang}
-					className="input-orange"
+					className="input-green"
 					required
 				/>
 				<input
@@ -66,11 +66,11 @@ const AboutEdit = ({ detailEvent, handleEditEvents = () => {} }) => {
 					placeholder="Date"
 					value={formEdit.date}
 					onChange={handleChang}
-					className="input-orange"
+					className="input-green"
 					required
 				/>
 			</div>
-			<button type="submit" className="flex justify-center items-center gap-3 btn-orange">
+			<button type="submit" className="flex justify-center items-center gap-3 btn-green">
 				{statusLoading !== "loading" && (
 					<div className="flex items-center justify-center">Edit Event</div>
 				)}

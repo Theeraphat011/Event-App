@@ -41,7 +41,7 @@ const EventForm = () => {
 					placeholder="Event Name"
 					value={formData.name}
 					onChange={handleChang}
-					className="input-orange"
+					className="input-green"
 					required
 				/>
 				<input
@@ -50,7 +50,7 @@ const EventForm = () => {
 					placeholder="Description"
 					value={formData.description}
 					onChange={handleChang}
-					className="input-orange"
+					className="input-green"
 				/>
 				<div className="grid grid-cols-2 gap-3">
 					<input
@@ -59,7 +59,7 @@ const EventForm = () => {
 						placeholder="Time"
 						value={formData.time}
 						onChange={handleChang}
-						className="input-orange"
+						class="input-time"
 						required
 					/>
 					<input
@@ -68,11 +68,11 @@ const EventForm = () => {
 						placeholder="Date"
 						value={formData.date}
 						onChange={handleChang}
-						className="input-orange"
+						className="input-green"
 						required
 					/>
 				</div>
-				<button type="submit" className="btn-orange">
+				<button type="submit" className="btn-green">
 					<div className="flex items-center justify-center">Add Event</div>
 				</button>
 			</form>
