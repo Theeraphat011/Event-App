@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = "https://6808bd43942707d722df86c9.mockapi.io/event";
+const API_URL = "https://6808bd43942707d722df86c9.mockapi.io/events";
 
 // All action
 export const fetchEvents = createAsyncThunk(
