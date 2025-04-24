@@ -38,40 +38,8 @@ Event App สร้างขึ้นเพื่อฝึกฝนทักษ�
 
 ---
 
-## 📦 วิธีติดตั้งและเริ่มต้นใช้งาน
+## 📁 โครงสร้างโปรเจค
 
-1. Clone โปรเจค:
-
-```bash
-git clone https://github.com/Theeraphat011/Event-App.git
-เข้าไปในโฟลเดอร์โปรเจค:
-
-bash
-คัดลอก
-แก้ไข
-cd Event-App
-ติดตั้ง dependencies:
-
-bash
-คัดลอก
-แก้ไข
-npm install
-รันโปรเจคแบบ dev:
-
-bash
-คัดลอก
-แก้ไข
-npm run dev
-เปิดเบราว์เซอร์และเข้าไปที่:
-
-arduino
-คัดลอก
-แก้ไข
-http://localhost:5173
-📁 โครงสร้างโปรเจค
-plaintext
-คัดลอก
-แก้ไข
 Event-App/
 ├── public/                # Static assets
 ├── src/
@@ -82,16 +50,11 @@ Event-App/
 │   └── main.jsx           # Entry point หลัก
 ├── package.json           # Dependencies และ Scripts
 └── README.md              # คำอธิบายโปรเจค
-📈 ฟีเจอร์เสริม (แผนพัฒนา)
-✅ Firebase Integration (Auth / Realtime DB)
-
-✅ MQTT / Mosquitto สำหรับ IoT Event Trigger
-
-✅ ระบบ Dashboard แสดง เปอร์เซ็นต์การใช้งาน (Usage Analytics)
-
 
 👨‍💻 ผู้พัฒนา
 Theeraphat Kannua
 📧 67035011@kmitl.ac.th
 🌐 GitHub - Theeraphat011
+
+---
 
