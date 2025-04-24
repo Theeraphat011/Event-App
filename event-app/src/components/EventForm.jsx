@@ -59,7 +59,7 @@ const EventForm = () => {
 						placeholder="Time"
 						value={formData.time}
 						onChange={handleChang}
-						class="input-time"
+						className="input-time"
 						required
 					/>
 					<input
